@@ -8,29 +8,29 @@ public class CreditCardController
     @javafx.fxml.FXML
     private TextField cardNoTextField;
     @javafx.fxml.FXML
-    private TableColumn holderNameCol;
+    private TableColumn <CreditCard,String> holderNameCol;
     @javafx.fxml.FXML
-    private TableColumn gatewayNameCol;
+    private TableColumn <CreditCard,String> gatewayNameCol;
     @javafx.fxml.FXML
     private TextField creditLimitTextField;
     @javafx.fxml.FXML
     private DatePicker dateOfExpiryDatePicker;
     @javafx.fxml.FXML
-    private TableView creditCardTableView;
+    private TableView <CreditCard> creditCardTableView;
     @javafx.fxml.FXML
     private TextField holderNameTextField;
     @javafx.fxml.FXML
-    private TableColumn creditLimitCol;
+    private TableColumn <CreditCard,Double> creditLimitCol;
     @javafx.fxml.FXML
     private TextField searchCreditLimitTextField;
     @javafx.fxml.FXML
-    private ComboBox cardTypeComboBox;
+    private ComboBox <String> cardTypeComboBox;
     @javafx.fxml.FXML
-    private ComboBox gatewayNameComboBox;
+    private ComboBox <String> gatewayNameComboBox;
     @javafx.fxml.FXML
-    private ComboBox searchGatewayNameComboBox;
+    private ComboBox <String> searchGatewayNameComboBox;
     @javafx.fxml.FXML
-    private TableColumn cardNoCol;
+    private TableColumn <CreditCard,String> cardNoCol;
 
     @javafx.fxml.FXML
     public void initialize() {
