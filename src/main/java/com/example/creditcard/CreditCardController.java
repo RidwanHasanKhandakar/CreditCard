@@ -105,7 +105,7 @@ public class CreditCardController
     cardList.add(newCard);
     creditCardTableView.getItems().clear();
     creditCardTableView.getItems().addAll(cardList);
-    Alert alert = new Alert(Alert.AlertType.ERROR);
+    Alert alert = new Alert(Alert.AlertType.INFORMATION);
     alert.setContentText("Credit Card Added successfully!");
     alert.show();
     //return;
