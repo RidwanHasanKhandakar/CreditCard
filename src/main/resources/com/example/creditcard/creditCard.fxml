@@ -44,13 +44,13 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="197.0" layoutY="61.0" style="-fx-background-color: red;" />
-      <TextField layoutX="197.0" layoutY="90.0" style="-fx-background-color: red;" />
-      <TextField layoutX="197.0" layoutY="187.0" style="-fx-background-color: red;" />
-      <ComboBox layoutX="197.0" layoutY="151.0" prefWidth="150.0" style="-fx-background-color: red;" />
-      <ComboBox layoutX="197.0" layoutY="217.0" prefWidth="150.0" style="-fx-background-color: red;" />
-      <DatePicker layoutX="197.0" layoutY="118.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: red;" />
-      <Button layoutX="81.0" layoutY="261.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="232.0" style="-fx-background-color: red;" text="Validate &amp; Add New Card to ArrayList" />
+      <TextField fx:id="cardNoTextField" layoutX="197.0" layoutY="61.0" style="-fx-background-color: red;" />
+      <TextField fx:id="holderNameTextField" layoutX="197.0" layoutY="90.0" style="-fx-background-color: red;" />
+      <TextField fx:id="creditLimitTextField" layoutX="197.0" layoutY="187.0" style="-fx-background-color: red;" />
+      <ComboBox fx:id="gatewayNameComboBox" layoutX="197.0" layoutY="151.0" prefWidth="150.0" style="-fx-background-color: red;" />
+      <ComboBox fx:id="cardTypeComboBox" layoutX="197.0" layoutY="217.0" prefWidth="150.0" style="-fx-background-color: red;" />
+      <DatePicker fx:id="dateOfExpiryDatePicker" layoutX="197.0" layoutY="118.0" prefHeight="26.0" prefWidth="150.0" style="-fx-background-color: red;" />
+      <Button layoutX="81.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleValidateButton" prefHeight="26.0" prefWidth="232.0" style="-fx-background-color: red;" text="Validate &amp; Add New Card to ArrayList" />
       <Text fill="RED" layoutX="399.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gateway Name: ">
          <font>
             <Font name="System Bold" size="14.0" />
@@ -61,18 +61,18 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Text>
-      <TextField layoutX="521.0" layoutY="95.0" style="-fx-background-color: red;" />
-      <ComboBox layoutX="521.0" layoutY="59.0" prefWidth="150.0" style="-fx-background-color: red;" />
-      <Button layoutX="521.0" layoutY="141.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: red;" text="Search &amp; Load Table" />
-      <TableView layoutX="373.0" layoutY="190.0" prefHeight="178.0" prefWidth="296.0" style="-fx-background-color: red;">
+      <TextField fx:id="searchCreditLimitTextField" layoutX="521.0" layoutY="95.0" style="-fx-background-color: red;" />
+      <ComboBox fx:id="searchGatewayNameComboBox" layoutX="521.0" layoutY="59.0" prefWidth="150.0" style="-fx-background-color: red;" />
+      <Button layoutX="456.0" layoutY="140.0" mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: red;" text="Search &amp; Load Table" />
+      <TableView fx:id="creditCardTableView" layoutX="373.0" layoutY="190.0" prefHeight="178.0" prefWidth="296.0" style="-fx-background-color: red;">
         <columns>
-          <TableColumn prefWidth="63.20001220703125" text="Card No" />
-          <TableColumn prefWidth="58.4000244140625" text="Name" />
-            <TableColumn prefWidth="88.0" text="Gateway" />
-            <TableColumn prefWidth="84.0" text="Limit" />
+          <TableColumn fx:id="cardNoCol" prefWidth="63.20001220703125" text="Card No" />
+          <TableColumn fx:id="holderNameCol" prefWidth="58.4000244140625" text="Name" />
+            <TableColumn fx:id="gatewayNameCol" prefWidth="88.0" text="Gateway" />
+            <TableColumn fx:id="creditLimitCol" prefWidth="84.0" text="Limit" />
         </columns>
       </TableView>
-      <Button layoutX="49.0" layoutY="328.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="310.0" style="-fx-background-color: red;" text="Show Average Credit Limit from Loaded TableView" />
+      <Button layoutX="49.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleShowAvrgButton" prefHeight="26.0" prefWidth="310.0" style="-fx-background-color: red;" text="Show Average Credit Limit from Loaded TableView" />
       <Label layoutX="316.0" layoutY="14.0" text="Credit Card" textFill="RED">
          <font>
             <Font name="System Bold Italic" size="16.0" />
