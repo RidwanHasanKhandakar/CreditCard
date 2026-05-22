@@ -54,6 +54,34 @@ public class CreditCardController
     ArrayList<CreditCard> cardList = new ArrayList<>();
     @javafx.fxml.FXML
     public void handleSearchButton(ActionEvent actionEvent) {
+        String selectedGateway = searchGatewayNameComboBox.getValue();
+        String minLimitText = searchCreditLimitTextField.getText().trim();
+        if(selectedGateway==null||minLimitText.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Plz fill up all fields");
+            alert.show();
+            return;
+        }
+        double minlimit;
+        try{
+            minlimit=Double.parseDouble(minLimitText);
+        }catch (NumberFormatException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Min credit limit must be a valid number!");
+            alert.show();
+            return;
+        }
+        creditCardTableView.getItems().clear();
+        for(CreditCard card: cardList){
+            if(card.getGatewayName().equals(selectedGateway)&&card.getCreditLimit()>=minlimit){
+                creditCardTableView.getItems().add(card);
+            }
+        }
+        if(creditCardTableView.getItems().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("No matching credit cards found");
+            alert.show();
+        }
     }
 
     @javafx.fxml.FXML
