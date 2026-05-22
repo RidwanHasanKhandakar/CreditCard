@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.util.ArrayList;
+
 public class CreditCardController
 {
     @javafx.fxml.FXML
@@ -48,7 +50,7 @@ public class CreditCardController
         gatewayNameCol.setCellValueFactory(new PropertyValueFactory<>("gatewayName"));
         creditLimitCol.setCellValueFactory(new PropertyValueFactory<>("creditLimit"));
     }
-
+    ArrayList<CreditCard> cardList = new ArrayList<>();
     @javafx.fxml.FXML
     public void handleSearchButton(ActionEvent actionEvent) {
     }
@@ -59,5 +61,6 @@ public class CreditCardController
 
     @javafx.fxml.FXML
     public void handleValidateButton(ActionEvent actionEvent) {
+
     }
 }
