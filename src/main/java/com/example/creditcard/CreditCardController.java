@@ -2,6 +2,7 @@ package com.example.creditcard;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class CreditCardController
 {
@@ -34,6 +35,18 @@ public class CreditCardController
 
     @javafx.fxml.FXML
     public void initialize() {
+        cardTypeComboBox.getItems().addAll("Silver",
+                "Gold",
+                "Platinum",
+                "titanium");
+        gatewayNameComboBox.getItems().addAll("Visa",
+                "Master Card");
+        searchGatewayNameComboBox.getItems().addAll("Visa",
+                "Master Card");
+        cardNoCol.setCellValueFactory(new PropertyValueFactory<>("cardNo"));
+        holderNameCol.setCellValueFactory(new PropertyValueFactory<>("holderName"));
+        gatewayNameCol.setCellValueFactory(new PropertyValueFactory<>("gatewayName"));
+        creditLimitCol.setCellValueFactory(new PropertyValueFactory<>("creditLimit"));
     }
 
     @javafx.fxml.FXML
