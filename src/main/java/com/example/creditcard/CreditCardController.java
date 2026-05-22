@@ -61,6 +61,51 @@ public class CreditCardController
 
     @javafx.fxml.FXML
     public void handleValidateButton(ActionEvent actionEvent) {
-
+    String cardNo = cardNoTextField.getText().trim();
+    String holderName = holderNameTextField.getText().trim();
+    String creditLimitText = creditLimitTextField.getText().trim();
+    String cardType = cardTypeComboBox.getValue();
+    String gatewayName = gatewayNameComboBox.getValue();
+    if(cardNo.isEmpty()||holderName.isEmpty()||gatewayName==null||cardType==null||creditLimitText.isEmpty()||dateOfExpiryDatePicker.getValue()==null){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("Plz fill up all fields");
+        alert.show();
+        return;
+    }
+    if(!cardNo.matches("\\d{16}")){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("Card number must be exactly 16 digits!");
+        alert.show();
+        return;
+    }
+    if(gatewayName.equals("Visa")&&!cardNo.startsWith("4")){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("Visa card number must start with 4");
+        alert.show();
+        return;
+    }
+    if(gatewayName.equals("Master Card")&&!cardNo.startsWith("5")){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("master Card number must start with 5!");
+        alert.show();
+        return;
+    }
+    double creditLimit;
+    try{
+        creditLimit=Double.parseDouble(creditLimitText);
+    }catch (NumberFormatException e){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("Credit Limit must be a valid number!");
+        alert.show();
+        return;
+    }
+    CreditCard newCard = new CreditCard(cardNo,holderName,gatewayName,creditLimit);
+    cardList.add(newCard);
+    creditCardTableView.getItems().clear();
+    creditCardTableView.getItems().addAll(cardList);
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setContentText("Credit Card Added successfully!");
+    alert.show();
+    //return;
     }
 }
