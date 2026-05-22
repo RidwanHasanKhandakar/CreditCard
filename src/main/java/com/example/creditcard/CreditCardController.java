@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class CreditCardController
@@ -66,6 +67,7 @@ public class CreditCardController
     String creditLimitText = creditLimitTextField.getText().trim();
     String cardType = cardTypeComboBox.getValue();
     String gatewayName = gatewayNameComboBox.getValue();
+    LocalDate dateOfExpiry = dateOfExpiryDatePicker.getValue();
     if(cardNo.isEmpty()||holderName.isEmpty()||gatewayName==null||cardType==null||creditLimitText.isEmpty()||dateOfExpiryDatePicker.getValue()==null){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setContentText("Plz fill up all fields");
@@ -99,7 +101,7 @@ public class CreditCardController
         alert.show();
         return;
     }
-    CreditCard newCard = new CreditCard(cardNo,holderName,gatewayName,creditLimit);
+    CreditCard newCard = new CreditCard(cardNo,holderName,dateOfExpiry,gatewayName,creditLimit,cardType);
     cardList.add(newCard);
     creditCardTableView.getItems().clear();
     creditCardTableView.getItems().addAll(cardList);
