@@ -35,6 +35,8 @@ public class CreditCardController
     private ComboBox <String> searchGatewayNameComboBox;
     @javafx.fxml.FXML
     private TableColumn <CreditCard,String> cardNoCol;
+    @javafx.fxml.FXML
+    private Label averageLabel;
 
     @javafx.fxml.FXML
     public void initialize() {
@@ -86,6 +88,18 @@ public class CreditCardController
 
     @javafx.fxml.FXML
     public void handleShowAvrgButton(ActionEvent actionEvent) {
+    if(creditCardTableView.getItems().isEmpty()){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setContentText("No cards loaded in TableView!");
+        alert.show();
+        return;
+    }
+    double sum =0 ;
+    for (CreditCard card : creditCardTableView.getItems()){
+        sum+=card.getCreditLimit();
+    }
+    double average = sum/creditCardTableView.getItems().size();
+    averageLabel.setText("Average Credit Limit: "+average);
     }
 
     @javafx.fxml.FXML
